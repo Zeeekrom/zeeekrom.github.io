@@ -1,0 +1,10 @@
+# Hostname-root policy approved by the owner on 13 November 2026.
+# Scope: only /lifeops-atlas-showcase/; other project paths are unchanged.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: CCBot
+User-agent: Google-Extended
+Disallow: /lifeops-atlas-showcase/
+
+User-agent: *
+Allow: /lifeops-atlas-showcase/
