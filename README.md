@@ -15,3 +15,7 @@ IP addresses for security. This site adds no analytics, forms or browser storage
 Publish only after the owner approves repository creation and deployment and
 the showcase terms release is live. GitHub Actions below uses standard hosted
 actions; their own licences remain applicable.
+
+The owner approved the initial public deployment on 13 November 2026. Pages
+uses the workflow build type and publishes only `site/`; the policy tests run
+before deployment. Future public changes require their own release approval.
