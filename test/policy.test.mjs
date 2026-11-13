@@ -21,15 +21,20 @@ function allowed(text, agent, path) {
   return rules[0]?.allow ?? true;
 }
 
-test('AI crawler rules only restrict the Atlas showcase path', async () => {
+test('AI crawler rules restrict the owner-approved project paths only', async () => {
   const text = await read('site/robots.txt');
   for (const agent of ['GPTBot', 'ClaudeBot', 'CCBot', 'Google-Extended']) {
     assert.equal(allowed(text, agent, '/lifeops-atlas-showcase/'), false, agent);
     assert.equal(allowed(text, agent, '/lifeops-atlas-showcase/terms/'), false, agent);
+    assert.equal(allowed(text, agent, '/agrisentry/'), false, agent);
+    assert.equal(allowed(text, agent, '/agrisentry/terms.html'), false, agent);
     assert.equal(allowed(text, agent, '/another-project/'), true, agent);
     assert.equal(allowed(text, agent, '/'), true, agent);
   }
-  for (const agent of ['Googlebot', 'bingbot']) assert.equal(allowed(text, agent, '/lifeops-atlas-showcase/terms/'), true, agent);
+  for (const agent of ['Googlebot', 'bingbot']) {
+    assert.equal(allowed(text, agent, '/lifeops-atlas-showcase/terms/'), true, agent);
+    assert.equal(allowed(text, agent, '/agrisentry/'), true, agent);
+  }
 });
 
 test('minimal entry contains bilingual copyright, terms links and no collection code', async () => {

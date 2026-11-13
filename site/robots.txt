@@ -1,10 +1,15 @@
-# Hostname-root policy approved by the owner on 13 November 2026.
-# Scope: only /lifeops-atlas-showcase/; other project paths are unchanged.
+# Hostname-root policy approved by the owner.
+# AI-training crawlers are blocked from the project paths below; ordinary search
+# engines and all other paths are unaffected.
+# Scope: /lifeops-atlas-showcase/ (13 November 2026) and /agrisentry/ (added on
+# the owner's instruction, 13 November 2026).
 User-agent: GPTBot
 User-agent: ClaudeBot
 User-agent: CCBot
 User-agent: Google-Extended
 Disallow: /lifeops-atlas-showcase/
+Disallow: /agrisentry/
 
 User-agent: *
 Allow: /lifeops-atlas-showcase/
+Allow: /agrisentry/
