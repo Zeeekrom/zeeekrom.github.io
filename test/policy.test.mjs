@@ -21,19 +21,22 @@ function allowed(text, agent, path) {
   return rules[0]?.allow ?? true;
 }
 
-test('AI crawler rules restrict the owner-approved project paths only', async () => {
+const PROJECT_PATHS = ['/', '/lifeops-atlas-showcase/', '/lifeops-atlas-showcase/terms/', '/agrisentry/',
+  '/agrisentry/terms.html', '/rivulet-localops/film/', '/cyber-finance-city/', '/little-red-sequel/film/',
+  '/payment-reconciliation-engine/film/', '/a-future-project/'];
+
+test('AI crawlers are blocked from the whole host (owner instruction, 16 November 2026)', async () => {
   const text = await read('site/robots.txt');
-  for (const agent of ['GPTBot', 'ClaudeBot', 'CCBot', 'Google-Extended']) {
-    assert.equal(allowed(text, agent, '/lifeops-atlas-showcase/'), false, agent);
-    assert.equal(allowed(text, agent, '/lifeops-atlas-showcase/terms/'), false, agent);
-    assert.equal(allowed(text, agent, '/agrisentry/'), false, agent);
-    assert.equal(allowed(text, agent, '/agrisentry/terms.html'), false, agent);
-    assert.equal(allowed(text, agent, '/another-project/'), true, agent);
-    assert.equal(allowed(text, agent, '/'), true, agent);
+  for (const agent of ['GPTBot', 'OAI-SearchBot', 'ClaudeBot', 'Claude-SearchBot', 'CCBot', 'Google-Extended',
+    'Applebot-Extended', 'PerplexityBot', 'Bytespider', 'meta-externalagent', 'Amazonbot', 'cohere-ai']) {
+    for (const path of PROJECT_PATHS) assert.equal(allowed(text, agent, path), false, `${agent} ${path}`);
   }
-  for (const agent of ['Googlebot', 'bingbot']) {
-    assert.equal(allowed(text, agent, '/lifeops-atlas-showcase/terms/'), true, agent);
-    assert.equal(allowed(text, agent, '/agrisentry/'), true, agent);
+});
+
+test('ordinary search engines may crawl every path', async () => {
+  const text = await read('site/robots.txt');
+  for (const agent of ['Googlebot', 'bingbot', 'DuckDuckBot']) {
+    for (const path of PROJECT_PATHS) assert.equal(allowed(text, agent, path), true, `${agent} ${path}`);
   }
 });
 

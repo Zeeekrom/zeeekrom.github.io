@@ -4,9 +4,11 @@ Minimal static entry for LifeOps Atlas and hostname-root robots rules.
 No production code, data, credentials, DNS configuration or other project
 content is included.
 
-The robots policy restricts named AI crawlers only under
-`/lifeops-atlas-showcase/`. Other project paths keep their default behaviour.
-Search engines remain allowed. Robots is advisory, not access control.
+The robots policy blocks named AI training and AI answer crawlers from the
+whole host, so every project page served under `zeeekrom.github.io` is covered
+(owner's instruction, 16 November 2026; before that it covered only
+`/lifeops-atlas-showcase/` and `/agrisentry/`). Search engines remain allowed.
+Robots is advisory, not access control.
 
 Copyright (c) 2026 LifeOps Atlas. All rights reserved.
 The entry page links bilingual terms on the showcase. GitHub Pages logs visitor

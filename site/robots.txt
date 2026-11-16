@@ -1,15 +1,30 @@
-# Hostname-root policy approved by the owner.
-# AI-training crawlers are blocked from the project paths below; ordinary search
-# engines and all other paths are unaffected.
-# Scope: /lifeops-atlas-showcase/ (13 November 2026) and /agrisentry/ (added on
-# the owner's instruction, 13 November 2026).
+# Hostname-root policy for zeeekrom.github.io, approved by the owner.
+# AI training and AI answer crawlers are blocked from every path on this host,
+# including every project page served under it. Ordinary search engines are
+# unaffected.
+# History: /lifeops-atlas-showcase/ and /agrisentry/ (13 November 2026); the
+# whole host on the owner's instruction (16 November 2026).
+# Robots rules are a request to compliant crawlers, not access control.
 User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
 User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: anthropic-ai
 User-agent: CCBot
 User-agent: Google-Extended
-Disallow: /lifeops-atlas-showcase/
-Disallow: /agrisentry/
+User-agent: Applebot-Extended
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Bytespider
+User-agent: meta-externalagent
+User-agent: Amazonbot
+User-agent: cohere-ai
+User-agent: Diffbot
+User-agent: Omgilibot
+User-agent: Timpibot
+Disallow: /
 
 User-agent: *
-Allow: /lifeops-atlas-showcase/
-Allow: /agrisentry/
+Allow: /
