@@ -1,22 +1,18 @@
 # Hostname-root policy for zeeekrom.github.io, approved by the owner.
-# AI training and AI answer crawlers are blocked from every path on this host,
-# including every project page served under it. Ordinary search engines are
-# unaffected.
+# AI training crawlers are blocked from every path on this host, including
+# every project page served under it. AI search and user-requested AI agents
+# (OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User, PerplexityBot,
+# Perplexity-User) and ordinary search engines are allowed.
 # History: /lifeops-atlas-showcase/ and /agrisentry/ (13 November 2026); the
-# whole host on the owner's instruction (16 November 2026).
+# whole host, training and answer crawlers (16 November 2026); training
+# crawlers only, AI search and agents allowed (owner's rule, 20 November 2026).
 # Robots rules are a request to compliant crawlers, not access control.
 User-agent: GPTBot
-User-agent: OAI-SearchBot
-User-agent: ChatGPT-User
 User-agent: ClaudeBot
-User-agent: Claude-SearchBot
-User-agent: Claude-User
 User-agent: anthropic-ai
 User-agent: CCBot
 User-agent: Google-Extended
 User-agent: Applebot-Extended
-User-agent: PerplexityBot
-User-agent: Perplexity-User
 User-agent: Bytespider
 User-agent: meta-externalagent
 User-agent: Amazonbot

@@ -4,10 +4,13 @@ Minimal static entry for LifeOps Atlas and hostname-root robots rules.
 No production code, data, credentials, DNS configuration or other project
 content is included.
 
-The robots policy blocks named AI training and AI answer crawlers from the
-whole host, so every project page served under `zeeekrom.github.io` is covered
-(owner's instruction, 16 November 2026; before that it covered only
-`/lifeops-atlas-showcase/` and `/agrisentry/`). Search engines remain allowed.
+The robots policy blocks named AI training crawlers from the whole host, so
+every project page served under `zeeekrom.github.io` is covered. AI search and
+user-requested AI agents (OAI-SearchBot, ChatGPT-User, Claude-SearchBot,
+Claude-User, PerplexityBot, Perplexity-User) and ordinary search engines are
+allowed (owner's rule for project sites, 20 November 2026). History: only
+`/lifeops-atlas-showcase/` and `/agrisentry/` from 13 November 2026; the whole
+host for training and answer crawlers from 16 November 2026.
 Robots is advisory, not access control.
 
 Copyright (c) 2026 LifeOps Atlas. All rights reserved.

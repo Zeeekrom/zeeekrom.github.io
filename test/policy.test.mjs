@@ -25,11 +25,18 @@ const PROJECT_PATHS = ['/', '/lifeops-atlas-showcase/', '/lifeops-atlas-showcase
   '/agrisentry/terms.html', '/rivulet-localops/film/', '/cyber-finance-city/', '/little-red-sequel/film/',
   '/payment-reconciliation-engine/film/', '/a-future-project/'];
 
-test('AI crawlers are blocked from the whole host (owner instruction, 16 November 2026)', async () => {
+test('AI training crawlers are blocked from the whole host (owner rule, 20 November 2026)', async () => {
   const text = await read('site/robots.txt');
-  for (const agent of ['GPTBot', 'OAI-SearchBot', 'ClaudeBot', 'Claude-SearchBot', 'CCBot', 'Google-Extended',
-    'Applebot-Extended', 'PerplexityBot', 'Bytespider', 'meta-externalagent', 'Amazonbot', 'cohere-ai']) {
+  for (const agent of ['GPTBot', 'ClaudeBot', 'anthropic-ai', 'CCBot', 'Google-Extended', 'Applebot-Extended',
+    'Bytespider', 'meta-externalagent', 'Amazonbot', 'cohere-ai', 'Diffbot', 'Omgilibot', 'Timpibot']) {
     for (const path of PROJECT_PATHS) assert.equal(allowed(text, agent, path), false, `${agent} ${path}`);
+  }
+});
+
+test('AI search and user-requested AI agents may read every path (owner rule, 20 November 2026)', async () => {
+  const text = await read('site/robots.txt');
+  for (const agent of ['OAI-SearchBot', 'ChatGPT-User', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User']) {
+    for (const path of PROJECT_PATHS) assert.equal(allowed(text, agent, path), true, `${agent} ${path}`);
   }
 });
 
